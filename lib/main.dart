@@ -18,7 +18,9 @@ Future<void> main() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool isLoggedIn = prefs.getBool("isLoggedIn") ?? false;
   runApp(DevicePreview(
-    enabled: !kReleaseMode,
+    enabled: true,
+    defaultDevice: Devices.ios.iPhone13ProMax,
+    devices: [Devices.ios.iPhone13ProMax],
     builder: (context) {
       return MultiProvider(providers: [
         ChangeNotifierProvider(create: (context) => AuthProvider()),
